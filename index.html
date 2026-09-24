@@ -109,15 +109,28 @@ html.clean .tbc{display:none}
 .pitch .big{font-family:"Outfit";font-weight:400;font-size:var(--fs-l);color:var(--white);line-height:1.3}
 .fiche{margin-top:calc(var(--gap)*1.4);border:1px solid rgba(255,255,255,.22);background:rgba(29,29,27,.78);border-radius:var(--r);padding:calc(var(--gap)*.9) calc(var(--gap)*1.1);position:relative}
 .fiche .fh{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed rgba(255,255,255,.25);padding-bottom:.6em;margin-bottom:.8em;color:var(--green)}
-.fiche dl{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--gap)*.8) var(--gap);margin:0}
+.fiche dl{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--gap)*.8) var(--gap);margin:0}
 .fiche dt{font-family:"Inter";font-weight:500;font-size:var(--fs-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--lgrey)}
 .fiche dd{margin:.15em 0 0;font-family:"Rajdhani";font-weight:600;font-size:var(--fs-h3);line-height:1.1}
 .fiche dd small{display:block;font-family:"Outfit";font-weight:300;font-size:var(--fs-s);color:var(--lgrey);line-height:1.3;margin-top:.15em}
 .pieces{position:relative;padding-bottom:calc(var(--u)*7)}
 .tablet{background:#0b0b0a;border-radius:calc(var(--r)*3);padding:calc(var(--u)*.9);box-shadow:0 calc(var(--u)*1.5) calc(var(--u)*4) rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.12)}
 .tablet img{border-radius:calc(var(--r)*1.4);aspect-ratio:4/3;object-fit:cover;width:100%}
+.carousel{position:relative}
+.carousel .track{position:relative;aspect-ratio:4/3;border-radius:calc(var(--r)*1.4);overflow:hidden;touch-action:pan-y}
+.carousel .track img{position:absolute;inset:0;height:100%;opacity:0;transition:opacity .6s var(--ease)}
+.carousel .track img.on{opacity:1}
+.cz{position:absolute;top:50%;transform:translateY(-50%);width:max(38px, calc(var(--u)*2.6));height:max(38px, calc(var(--u)*2.6));border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.cz:hover{background:var(--green);color:var(--anth)}
+.cz svg{width:50%;height:50%}
+.cz.prev{left:calc(var(--u)*1.6)}
+.cz.next{right:calc(var(--u)*1.6)}
+.cdots{position:absolute;left:0;right:0;bottom:calc(var(--u)*1.4);display:flex;justify-content:center;gap:8px}
+.cdots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 4px rgba(0,0,0,.6)}
+.cdots i.on{background:var(--green)}
+.piece-label .cnt{margin-left:auto;color:var(--lgrey);font-variant-numeric:tabular-nums}
 .piece-label{display:flex;gap:.6em;align-items:center;margin-top:.7em;color:var(--lgrey)}
-.piece-label.top{margin:0 0 .8em}
+.piece-label.top{margin:0 0 .8em;display:flex}
 .piece-label b{white-space:nowrap;color:var(--anth);background:var(--green);padding:.15em .5em;border-radius:2px;font-weight:600}
 .polaroid{position:absolute;left:calc(var(--u)*-3);bottom:0;width:44%;background:#fff;padding:calc(var(--u)*.6) calc(var(--u)*.6) calc(var(--u)*.4);transform:rotate(-5deg);box-shadow:0 calc(var(--u)*1) calc(var(--u)*3) rgba(0,0,0,.55)}
 .polaroid img{aspect-ratio:3/2;object-fit:cover;width:100%}
@@ -142,15 +155,19 @@ html.clean .tbc{display:none}
 .arrival .portrait{position:relative;border-radius:var(--r);overflow:hidden;height:calc(var(--u)*46);max-height:78vh}
 .arrival .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 .arrival .portrait .stamp{position:absolute;top:calc(var(--gap)*1);right:calc(var(--gap)*.8);background:rgba(0,0,0,.55)}
-.line{list-style:none;margin:calc(var(--gap)*1.4) 0 calc(var(--gap)*1.4);padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);position:relative}
+.line{list-style:none;margin:calc(var(--gap)*1.2) 0 calc(var(--gap)*1.1);padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);position:relative}
 .line::before{content:"";position:absolute;left:.6em;right:.6em;top:calc(.6em - 2px);height:4px;background:linear-gradient(90deg,var(--green),var(--green) 66%,var(--blue));border-radius:4px}
 .line li{position:relative;padding-top:calc(1.2em + var(--gap)*.7)}
 .line li::before{content:"";position:absolute;top:0;left:0;width:1.2em;height:1.2em;border-radius:50%;background:var(--anth);border:4px solid var(--green)}
 .line li:last-child::before{border-color:var(--blue);background:var(--blue)}
 .line .stop{font-family:"Rajdhani";font-weight:700;font-size:var(--fs-h3);text-transform:uppercase;display:block}
 .line p{color:#DADADA;margin-top:.25em;font-size:var(--fs-b);line-height:1.38}
+.leb{display:flex;flex-wrap:wrap;align-items:center;gap:.35em 0;margin-top:calc(var(--gap)*1);font-family:"Inter";font-size:var(--fs-s);color:#E6E6E6;background:rgba(82,177,241,.12);border:1px solid rgba(82,177,241,.45);border-radius:999px;padding:.45em 1.1em;width:fit-content;max-width:100%}
+.leb .ico-train{width:1.3em;height:1.3em;color:var(--blue);margin-right:.6em}
+.leb span+span::before{content:"·";margin:0 .6em;color:var(--blue)}
+.leb b{color:var(--white);font-weight:600}
 .arrival .wide{border-radius:var(--r);overflow:hidden;position:relative}
-.arrival .wide img{width:100%;aspect-ratio:16/7;object-fit:cover;object-position:50% 45%}
+.arrival .wide img{width:100%;aspect-ratio:16/6;object-fit:cover;object-position:50% 45%}
 .arrival .wide .label{position:absolute;left:0;bottom:0;padding:.8em 1em;background:linear-gradient(90deg,rgba(0,0,0,.75),transparent);right:0;color:#fff}
 
 /* ============ 05 Compose ============ */
@@ -195,14 +212,14 @@ html.clean .tbc{display:none}
 .facts span b{color:var(--green);font-weight:600}
 .rhythm .ex{margin-top:calc(var(--gap)*1.3)}
 .rhythm .photo{margin-top:calc(var(--gap)*1.5);border-radius:var(--r);overflow:hidden}
-.rhythm .photo img{width:100%;aspect-ratio:16/8;object-fit:cover;object-position:50% 40%}
+.rhythm .photo img{width:100%;aspect-ratio:16/7;object-fit:cover;object-position:50% 40%}
 .tabs{display:inline-flex;background:rgba(255,255,255,.08);border-radius:999px;padding:4px;gap:4px;margin-bottom:calc(var(--gap)*1.1)}
 .tab{cursor:pointer;border:0;background:transparent;color:var(--lgrey);font-family:"Inter";font-weight:600;font-size:var(--fs-s);padding:.5em 1.2em;border-radius:999px;letter-spacing:.02em}
 .tab[aria-selected="true"]{background:var(--green);color:var(--anth)}
 .tl{list-style:none;margin:0;padding:0;position:relative}
 .tl::before{content:"";position:absolute;left:calc(var(--u)*9.2 + 7px);top:.8em;bottom:.8em;width:2px;background:rgba(255,255,255,.2)}
-.tl li{display:grid;grid-template-columns:calc(var(--u)*9.2) 1fr;gap:calc(var(--gap)*1.4);align-items:start;padding:calc(var(--gap)*.62) 0;position:relative}
-.tl li::before{content:"";position:absolute;left:calc(var(--u)*9.2);top:calc(var(--gap)*.62 + .45em);width:16px;height:16px;border-radius:50%;background:var(--anth);border:3px solid var(--green);box-sizing:border-box}
+.tl li{display:grid;grid-template-columns:calc(var(--u)*9.2) 1fr;gap:calc(var(--gap)*1.4);align-items:start;padding:calc(var(--gap)*.42) 0;position:relative}
+.tl li::before{content:"";position:absolute;left:calc(var(--u)*9.2);top:calc(var(--gap)*.42 + .45em);width:16px;height:16px;border-radius:50%;background:var(--anth);border:3px solid var(--green);box-sizing:border-box}
 .tl li.hl::before{background:var(--green)}
 .tl .h{font-family:"Inter";font-weight:600;font-size:var(--fs-b);font-variant-numeric:tabular-nums;color:var(--green);white-space:nowrap;text-align:right;padding-right:4px}
 .tl .h.soft{color:var(--blue)}
@@ -214,6 +231,11 @@ html.clean .tbc{display:none}
 .wave i{display:flex;gap:3px}
 .wave i::before,.wave i::after{content:"";width:.8em;height:.8em;border-radius:50%;background:var(--green)}
 .tl-panel[hidden]{display:none}
+.tl li.train::before{border-color:var(--blue);background:var(--blue)}
+.tl li.train .h{color:var(--blue)}
+.tl .tag{display:inline-flex;align-items:center;gap:.3em;font-family:"Inter";font-weight:600;font-size:var(--fs-xs);letter-spacing:.08em;color:var(--anth);background:var(--blue);border-radius:3px;padding:.1em .45em;margin-right:.6em;vertical-align:.12em}
+.tl .tag .ico-train{width:1.2em;height:1.2em}
+.tl .sub{display:block;font-family:"Inter";font-weight:400;font-size:var(--fs-xs);color:var(--lgrey);margin-top:.2em;letter-spacing:.02em}
 .tl-foot{margin-top:calc(var(--gap)*.8);font-family:"Inter";font-size:var(--fs-xs);color:var(--lgrey)}
 .ex-stamp{color:#FFE14D;border-color:#FFE14D;outline-color:#FFE14D}
 
@@ -286,7 +308,7 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
   :root{--u:2.97mm;--f:0}
   html,body{background:#fff}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .progress,.dots,.counter,.hint,.compose .how .reset{display:none!important}
+  .progress,.dots,.counter,.hint,.compose .how .reset,.cz,.cdots{display:none!important}
   .slide{width:297mm;height:210mm;min-height:0;page-break-after:always;break-after:page;page-break-inside:avoid;break-inside:avoid;padding:9mm 12mm}
   .slide:last-of-type{page-break-after:auto;break-after:auto}
   html.js .reveal,html.js .stamp.reveal{opacity:1!important;transition:none!important}
@@ -329,7 +351,7 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
       <span class="stamp reveal" style="--d:3">Dossier confidentiel<small>préparé pour le LEB</small></span>
       <h1 data-scramble>Ta journée d'équipe de rêve à <span class="green">Échallens</span></h1>
       <p class="accroche reveal" style="--d:1">Ta mission, si tu l'acceptes : vivre la journée d'équipe dont tout le monde parlera encore demain.</p>
-      <p class="sub reveal" style="--d:2">Une aventure d'espionnage <strong>immersive en réalité augmentée</strong>, dehors, à 20 minutes de Lausanne — en LEB, évidemment.</p>
+      <p class="sub reveal" style="--d:2">Une aventure d'espionnage <strong>immersive en réalité augmentée</strong>, dehors, à 27 minutes de Lausanne-Flon — en LEB, évidemment.</p>
     </div>
   </div>
   <footer class="foot">
@@ -359,18 +381,27 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
         <div class="fiche reveal" style="--d:3">
           <div class="fh"><span class="label">Fiche mission</span><span class="label">MindFall</span></div>
           <dl>
-            <div><dt>Âge</dt><dd>Dès 14 ans</dd></div>
             <div><dt>Durée</dt><dd>Environ 2 h</dd></div>
             <div><dt>Parcours</dt><dd>~1,4 km<small>plat</small></dd></div>
-            <div><dt>Équipes</dt><dd>De 2 à 5</dd></div>
+            <div><dt>Équipes</dt><dd>5 agents<small>par équipe</small></dd></div>
             <div><dt>Langues</dt><dd>FR · EN<small>français et anglais</small></dd></div>
-            <div><dt>Météo</dt><dd>Par tous les temps<small>pèlerines et parapluies fournis</small></dd></div>
           </dl>
         </div>
       </div>
       <div class="pieces reveal" style="--d:2">
-        <div class="piece-label label top"><b>Pièce A</b> La mission, vue à travers la tablette</div>
-        <div class="tablet"><img src="img/mindfall-ra-tablette.webp" alt="Capture de la réalité augmentée MindFall sur tablette : une équipe d'agents en plein saut, interface de mission"></div>
+        <div class="piece-label label top"><b>Pièce A</b> <span class="cap" aria-live="polite">La mission, vue à travers la tablette</span><span class="cnt">1 / 5</span></div>
+        <div class="tablet carousel" role="region" aria-roledescription="carrousel" aria-label="Photos de l'Opération MindFall">
+          <div class="track">
+            <img class="on" src="img/mindfall-ra-tablette.webp" data-cap="La mission, vue à travers la tablette" alt="Capture de la réalité augmentée MindFall sur tablette : une équipe d'agents en plein saut, interface de mission">
+            <img src="img/equipe-tablette.webp" data-cap="Ensemble autour de la tablette" alt="Une équipe rit ensemble autour d'une tablette, en plein air" loading="lazy">
+            <img src="img/mindfall-code.webp" data-cap="Un message caché à révéler" alt="Une lampe révèle des chiffres cachés sur un document de mission" loading="lazy">
+            <img src="img/equipe-balade.webp" data-cap="Dehors, en équipe" alt="Une équipe marche ensemble, tablette en main" loading="lazy">
+            <img src="img/mindfall-univers.webp" data-cap="L'univers de l'Opération MindFall" alt="Visuel de l'Opération MindFall : une agente entre dans une salle de contrôle" loading="lazy">
+          </div>
+          <button type="button" class="cz prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" class="cz next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+          <div class="cdots" aria-hidden="true"></div>
+        </div>
         <figure class="polaroid" style="margin:0">
           <img src="img/mindfall-valise.webp" alt="Un agent consulte le matériel de mission dans une mallette">
           <figcaption class="piece-label label"><b>Pièce B</b> Le matériel de mission</figcaption>
@@ -435,8 +466,9 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
         <span class="eyebrow label reveal">L'arrivée</span>
         <h2 class="h2" data-scramble>Les agents vous attendent</h2>
         <p class="lead reveal" style="--d:1">L'immersion commence avant même le premier pas en forêt.</p>
+        <div class="leb reveal" style="--d:2"><svg class="ico-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><circle cx="9" cy="13.5" r=".8" fill="currentColor"/><circle cx="15" cy="13.5" r=".8" fill="currentColor"/><path d="M8 21l2-4M16 21l-2-4"/></svg><span><b>LEB · ligne R20</b></span><span><b>27 min</b> de Lausanne-Flon à Échallens</span><span>sans changement</span><span>un train toutes les <b>15 min</b></span></div>
         <ol class="line">
-          <li class="reveal" style="--d:2"><span class="stop">Lausanne</span><p>Ton équipe monte dans le LEB. Direction Échallens.</p></li>
+          <li class="reveal" style="--d:2"><span class="stop">Lausanne-Flon</span><p>Ton équipe monte dans le LEB. Direction Échallens.</p></li>
           <li class="reveal" style="--d:3"><span class="stop">Échallens</span><p>Deux agents vous attendent sur le quai.</p></li>
           <li class="reveal" style="--d:4"><span class="stop">Ordres de mission</span><p>Ils vous les remettent en main propre. La mission commence.</p></li>
         </ol>
@@ -471,8 +503,9 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
         <div class="step-h"><span class="n">1</span><h3 id="st1">Le trajet</h3></div>
         <button type="button" class="opt" data-step="trajet" data-val="leb" data-short="LEB + agents" aria-pressed="false">
           <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-          <span class="t">En LEB depuis Lausanne</span>
-          <span class="d">Accueil par les agents sur le quai d'Échallens.</span>
+          <span class="t">En LEB depuis Lausanne-Flon</span>
+          <span class="d">27 min sans changement. Accueil par les agents sur le quai d'Échallens.</span>
+          <span class="m">Ligne R20 · un train toutes les 15 min</span>
         </button>
         <button type="button" class="opt" data-step="trajet" data-val="direct" data-short="arrivée directe" aria-pressed="false">
           <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
@@ -483,22 +516,19 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
 
       <div class="step reveal" style="--d:2" role="group" aria-labelledby="st2">
         <div class="step-h"><span class="n">2</span><h3 id="st2">Café-croissant</h3></div>
-        <button type="button" class="opt" data-step="accueil" data-val="locaux" data-short="café dans vos locaux" data-place="Dans vos locaux à Échallens" aria-pressed="false">
+        <button type="button" class="opt" data-step="accueil" data-val="anges" data-short="café à la Pizza des Anges" data-place="À la Pizza des Anges" aria-pressed="false">
           <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-          <span class="t">Dans vos locaux</span>
-          <span class="d">À Échallens, chez vous.</span>
+          <span class="t">Pizza des Anges</span>
+          <span class="d">Notre voisin, à deux pas de la base KeyQuest.</span>
+          <span class="m">Route d'Yverdon 9J · pizza-des-anges.ch</span>
         </button>
-        <button type="button" class="opt" data-step="accueil" data-val="partenaire" data-short="café chez un partenaire" data-place="Chez un partenaire à Échallens" aria-pressed="false">
+        <button type="button" class="opt" data-step="accueil" data-val="ble" data-short="café à la Maison du Blé et du Pain" data-place="À la Maison du Blé et du Pain" aria-pressed="false">
           <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-          <span class="t">Chez un partenaire</span>
-          <span class="d">Un lieu partenaire à Échallens. <mark class="tbc">[À CONFIRMER : lequel]</mark></span>
+          <span class="t">Maison du Blé et du Pain</span>
+          <span class="d">Le musée et sa boulangerie, au cœur du bourg d'Échallens.</span>
+          <span class="m">Place de l'Hôtel-de-Ville 5 · bonpain.ch</span>
         </button>
-        <button type="button" class="opt" data-step="accueil" data-val="base" data-short="café à la base" data-place="À la base KeyQuest" aria-pressed="false">
-          <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-          <span class="t">À notre base KeyQuest</span>
-          <span class="d">Au cœur du parcours. <mark class="tbc">[À CONFIRMER : accueil pour 40]</mark></span>
-          <span class="m">Route d'Yverdon 9A</span>
-        </button>
+        <p class="note">Chez un partenaire local, à Échallens.</p>
       </div>
 
       <div class="step reveal" style="--d:3" role="group" aria-labelledby="st3">
@@ -529,16 +559,15 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
           <span class="d">Bar à vin : plus de 30 tartares et des burgers, 170 vins de vignerons partenaires. Privatisation possible.</span>
           <span class="m">Chemin de l'Usine 16 · cellier-echallens.ch</span>
         </button>
-        <p class="note"><mark class="tbc">[À CONFIRMER : disponibilité pour 40 personnes]</mark></p>
       </div>
 
       <div class="step reveal" style="--d:5" role="group" aria-labelledby="st5">
         <div class="step-h"><span class="n">5</span><h3 id="st5">Apéro &amp; prix</h3></div>
-        <button type="button" class="opt" data-step="apero" data-val="blavignac" data-short="apéro Blavignac" data-place="Chez Blavignac" aria-pressed="false">
+        <button type="button" class="opt" data-step="apero" data-val="blavignac" data-short="apéro Blavignac" data-place="Avec Blavignac, dans vos locaux ou un lieu à choisir" aria-pressed="false">
           <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-          <span class="t">Blavignac</span>
-          <span class="d">Cave à vin à Échallens. Privatisation et événements.</span>
-          <span class="m">Route de Cossonay 7 · blavignac.ch</span>
+          <span class="t">Avec Blavignac</span>
+          <span class="d">Notre partenaire cave à vin vient à vous : dans vos locaux du LEB ou dans un lieu à choisir ensemble.</span>
+          <span class="m">blavignac.ch</span>
         </button>
         <button type="button" class="opt" data-step="apero" data-val="resto" data-short="apéro au restaurant" data-place="Au restaurant du repas" aria-pressed="false">
           <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
@@ -575,10 +604,10 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
     <div class="grid">
       <div>
         <span class="eyebrow label reveal">Le rythme de la journée</span>
-        <h2 class="h2" data-scramble>40 agents, une journée</h2>
-        <p class="lead reveal" style="--d:1">Des départs échelonnés : chaque équipe vit sa mission à son rythme, tout le monde se retrouve à la fin.</p>
+        <h2 class="h2" data-scramble>50 agents, une journée</h2>
+        <p class="lead reveal" style="--d:1">Calée sur les horaires du LEB. Départs échelonnés : chaque équipe vit sa mission à son rythme, tout le monde se retrouve à la fin.</p>
         <div class="facts reveal" style="--d:2">
-          <span><b>40</b> personnes</span><span><b>10</b> équipes de 4</span><span><b>2</b> équipes par départ</span><span>un départ toutes les <b>15 min</b></span>
+          <span><b>50</b> agents</span><span><b>10</b> équipes de 5</span><span><b>2</b> équipes par départ</span><span>un départ toutes les <b>15 min</b></span>
         </div>
         <div class="ex reveal" style="--d:3"><span class="stamp ex-stamp">Exemple, à ajuster ensemble</span></div>
         <div class="photo reveal" style="--d:3"><img src="img/equipe-balade.webp" alt="Une équipe marche ensemble, tablette en main"></div>
@@ -592,6 +621,8 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
           <div class="tl-panel" id="panel-matin" role="tabpanel" aria-labelledby="tab-matin">
             <p class="ptitle">Mission du matin</p>
             <ol class="tl">
+<li class="train"><span class="h">07:55</span><span class="e"><span class="tag"><svg class="ico-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><circle cx="9" cy="13.5" r=".8" fill="currentColor"/><circle cx="15" cy="13.5" r=".8" fill="currentColor"/><path d="M8 21l2-4M16 21l-2-4"/></svg>LEB</span>Départ de Lausanne-Flon<span class="sub">Ligne R20, direction Bercher</span></span></li>
+<li class="train"><span class="h">08:22</span><span class="e"><span class="tag"><svg class="ico-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><circle cx="9" cy="13.5" r=".8" fill="currentColor"/><circle cx="15" cy="13.5" r=".8" fill="currentColor"/><path d="M8 21l2-4M16 21l-2-4"/></svg>LEB</span>Arrivée à Échallens<span class="sub">Les agents vous attendent sur le quai</span></span></li>
               <li><span class="h">08:30</span><span class="e">Accueil café-croissant &amp; briefing des agents<span class="dyn" data-dyn="accueil"></span></span></li>
               <li class="hl"><span class="h">09:00 – 10:00</span><span class="e">Départs échelonnés (2 équipes toutes les 15 min)
                 <span class="waves" aria-hidden="true"><span class="wave"><i></i>09:00</span><span class="wave"><i></i>09:15</span><span class="wave"><i></i>09:30</span><span class="wave"><i></i>09:45</span><span class="wave"><i></i>10:00</span></span></span></li>
@@ -599,11 +630,14 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
               <li><span class="h">12:00</span><span class="e">Retour de la dernière équipe</span></li>
               <li class="hl"><span class="h">12:30</span><span class="e">Apéritif &amp; remise des prix<span class="dyn" data-dyn="apero"></span></span></li>
               <li><span class="h">13:00</span><span class="e">Repas au restaurant privatisé<span class="dyn" data-dyn="repas"></span></span></li>
+              <li class="train"><span class="h">15:08</span><span class="e"><span class="tag"><svg class="ico-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><circle cx="9" cy="13.5" r=".8" fill="currentColor"/><circle cx="15" cy="13.5" r=".8" fill="currentColor"/><path d="M8 21l2-4M16 21l-2-4"/></svg>LEB</span>Retour vers Lausanne-Flon<span class="sub">Arrivée 15:35 · puis un train toutes les 15 min</span></span></li>
             </ol>
           </div>
           <div class="tl-panel" id="panel-aprem" role="tabpanel" aria-labelledby="tab-aprem" hidden>
             <p class="ptitle">Mission de l'après-midi</p>
             <ol class="tl">
+<li class="train"><span class="h">11:10</span><span class="e"><span class="tag"><svg class="ico-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><circle cx="9" cy="13.5" r=".8" fill="currentColor"/><circle cx="15" cy="13.5" r=".8" fill="currentColor"/><path d="M8 21l2-4M16 21l-2-4"/></svg>LEB</span>Départ de Lausanne-Flon<span class="sub">Ligne R20, direction Échallens</span></span></li>
+<li class="train"><span class="h">11:37</span><span class="e"><span class="tag"><svg class="ico-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><circle cx="9" cy="13.5" r=".8" fill="currentColor"/><circle cx="15" cy="13.5" r=".8" fill="currentColor"/><path d="M8 21l2-4M16 21l-2-4"/></svg>LEB</span>Arrivée à Échallens<span class="sub">Les agents vous attendent sur le quai</span></span></li>
               <li><span class="h">12:00</span><span class="e">Repas au restaurant partenaire<span class="dyn" data-dyn="repas"></span></span></li>
               <li><span class="h">13:30</span><span class="e">Café &amp; rafraîchissements dans un lieu privatisé, briefing des agents<span class="dyn" data-dyn="accueil"></span></span></li>
               <li class="hl"><span class="h">14:00 – 15:00</span><span class="e">Départs échelonnés
@@ -611,10 +645,11 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
               <li><span class="h soft">~2 h</span><span class="e">Mission</span></li>
               <li><span class="h">17:00</span><span class="e">Retour de la dernière équipe</span></li>
               <li class="hl"><span class="h">17:30</span><span class="e">Apéritif thématique « fin de mission » &amp; remise des prix<span class="dyn" data-dyn="apero"></span></span></li>
+              <li class="train"><span class="h">18:38</span><span class="e"><span class="tag"><svg class="ico-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><circle cx="9" cy="13.5" r=".8" fill="currentColor"/><circle cx="15" cy="13.5" r=".8" fill="currentColor"/><path d="M8 21l2-4M16 21l-2-4"/></svg>LEB</span>Retour vers Lausanne-Flon<span class="sub">Arrivée 19:05 · puis un train toutes les 15 min</span></span></li>
             </ol>
           </div>
         </div>
-        <p class="tl-foot"><mark class="tbc">[À CONFIRMER : horaires du LEB à caler sur l'accueil]</mark></p>
+        <p class="tl-foot">Horaires LEB 2026, ligne R20 (jours ouvrables). À revérifier pour la date retenue.</p>
       </div>
     </div>
   </div>
@@ -742,10 +777,37 @@ body[data-nav="light"] .dots,body[data-nav="light"] .counter{color:var(--anth)}
   } else { slides.forEach(function(s){ s.classList.add('on'); s._jobs.forEach(finish); }); }
   window.addEventListener('beforeprint', function(){ slides.forEach(function(s){ s.classList.add('on'); }); jobs.forEach(finish); });
 
+
+  /* ---------- Carrousel MindFall (Pièce A) ---------- */
+  [].forEach.call(document.querySelectorAll('.carousel'), function(c){
+    var imgs = [].slice.call(c.querySelectorAll('.track img')), k = 0, timer = 0, hold = false;
+    var box = c.previousElementSibling, cap = box.querySelector('.cap'), cnt = box.querySelector('.cnt'), dotsEl = c.querySelector('.cdots');
+    imgs.forEach(function(){ dotsEl.appendChild(document.createElement('i')); });
+    var cd = [].slice.call(dotsEl.children);
+    function show(i){
+      k = (i + imgs.length) % imgs.length;
+      imgs.forEach(function(im, j){ im.classList.toggle('on', j === k); });
+      cd.forEach(function(d, j){ d.classList.toggle('on', j === k); });
+      cap.textContent = imgs[k].dataset.cap; cnt.textContent = (k+1) + ' / ' + imgs.length;
+    }
+    function inView(){ var r = c.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; }
+    function tick(){ if (!hold && !document.hidden && inView()) show(k+1); }
+    if (!reduce) timer = setInterval(tick, 5000);
+    function restart(){ if (timer){ clearInterval(timer); timer = setInterval(tick, 5000); } }
+    c.querySelector('.prev').addEventListener('click', function(e){ show(k-1); restart(); if (e.detail > 0) this.blur(); });
+    c.querySelector('.next').addEventListener('click', function(e){ show(k+1); restart(); if (e.detail > 0) this.blur(); });
+    c.addEventListener('mouseenter', function(){ hold = true; });
+    c.addEventListener('mouseleave', function(){ hold = false; });
+    var x0 = null, track = c.querySelector('.track');
+    track.addEventListener('pointerdown', function(e){ x0 = e.clientX; });
+    track.addEventListener('pointerup', function(e){ if (x0 === null) return; var dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40){ show(dx < 0 ? k+1 : k-1); restart(); } });
+    show(0);
+  });
+
   /* ---------- Compose ta journée ---------- */
   var ORDER = ['trajet','accueil','mission','repas','apero'];
   var TODO = {trajet:'trajet ?', accueil:'café ?', mission:'mission ?', repas:'repas ?', apero:'apéro ?'};
-  var KEY = 'kq-leb-compose-v1';
+  var KEY = 'kq-leb-compose-v2';
   var state = {sel:{}, extras:[]};
   try { var saved = JSON.parse(localStorage.getItem(KEY)); if (saved && saved.sel) state = saved; } catch(e){}
   var opts = [].slice.call(document.querySelectorAll('.opt')), chips = [].slice.call(document.querySelectorAll('.chip'));
